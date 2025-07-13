@@ -1,21 +1,13 @@
 package org.example;
 
-import org.example.classes.AscendingSort;
-import org.example.classes.DescendingSort;
-import org.example.classes.Sorter;
+import org.example.classes.ProxyFile;
+import org.example.interfaces.FileIF;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
-    public static void main( String[] args ) {
-        Sorter sorter = new Sorter();
-        Integer[] array = {7, 2, 9, 4, 0, 1, 5};
-        sorter.setStrategy(new AscendingSort());
-        sorter.sortData(array);
-        sorter.setStrategy(new DescendingSort());
-        sorter.sortData(array);
+    public static void main( String[] args )    {
+        FileIF file = new ProxyFile("test.file");
+        file.display();
     }
 }
