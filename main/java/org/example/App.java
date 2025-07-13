@@ -1,21 +1,23 @@
 package org.example;
 
-import org.example.classes.AscendingSort;
-import org.example.classes.DescendingSort;
-import org.example.classes.Sorter;
+import org.example.classes.TxtToYamlAdapter;
+import org.example.innterfaces.DataConverter;
 
-/**
- * Hello world!
- *
- */
-public class App 
-{
-    public static void main( String[] args ) {
-        Sorter sorter = new Sorter();
-        Integer[] array = {7, 2, 9, 4, 0, 1, 5};
-        sorter.setStrategy(new AscendingSort());
-        sorter.sortData(array);
-        sorter.setStrategy(new DescendingSort());
-        sorter.sortData(array);
+import java.io.BufferedReader;
+import java.io.StringReader;
+
+public class App {
+    public static void main(String[] args) {
+        String txtData = "name=Yauheni Krasitski\n" +
+                "age=24\n" +
+                "city=Vitebsk";
+
+        BufferedReader reader = new BufferedReader(new StringReader(txtData));
+        DataConverter adapter = new TxtToYamlAdapter(reader);
+        String yamlData = adapter.convertData(txtData);
+
+        if (yamlData != null) {
+            System.out.println(yamlData);
+        }
     }
 }
