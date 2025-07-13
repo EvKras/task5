@@ -1,21 +1,16 @@
 package org.example;
 
-import org.example.classes.AscendingSort;
-import org.example.classes.DescendingSort;
-import org.example.classes.Sorter;
+import org.example.classes.Print;
+import org.example.classes.SimpleProduct;
+import org.example.interfaces.Product;
 
-/**
- * Hello world!
- *
- */
 public class App 
 {
-    public static void main( String[] args ) {
-        Sorter sorter = new Sorter();
-        Integer[] array = {7, 2, 9, 4, 0, 1, 5};
-        sorter.setStrategy(new AscendingSort());
-        sorter.sortData(array);
-        sorter.setStrategy(new DescendingSort());
-        sorter.sortData(array);
+    public static void main( String[] args )    {
+        Product product = new SimpleProduct();
+        System.out.println(product.getDescription() + " " + product.getCost());
+
+        product = new Print(product);
+        System.out.println(product.getDescription() + " " + product.getCost());
     }
 }
