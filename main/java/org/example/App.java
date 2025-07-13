@@ -1,21 +1,13 @@
 package org.example;
 
-import org.example.classes.AscendingSort;
-import org.example.classes.DescendingSort;
-import org.example.classes.Sorter;
+import org.example.classes.Person;
 
-/**
- * Hello world!
- *
- */
-public class App 
+public class App
 {
-    public static void main( String[] args ) {
-        Sorter sorter = new Sorter();
-        Integer[] array = {7, 2, 9, 4, 0, 1, 5};
-        sorter.setStrategy(new AscendingSort());
-        sorter.sortData(array);
-        sorter.setStrategy(new DescendingSort());
-        sorter.sortData(array);
+    public static void main( String[] args )    {
+        Person person = new Person.Builder("Yauheny", "Krasitski")
+                .age(24)
+                .phone("+375 33 993-32-00")
+                .build();
     }
 }
